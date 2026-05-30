@@ -1,0 +1,5 @@
+TimetableName,TimetableId,Semester,AllowLectureOverlap,TopicCode,TopicName,ClassName,ClassInstance,Day,FirstDate,LastDate,StartTime,EndTime,Building,Room,ClashWarning,CommuteWarning
+S1 2026,TT-16,S1+S2,false,COMP1102,Programming Fundamentals,Workshop,2,WEDNESDAY,4 Mar,8 Apr,14:00,17:00,Festival Tower,605 Collaborative Learning,false,false
+S1 2026,TT-16,S1+S2,false,COMP1103,UX Fundamentals,Workshop,1,THURSDAY,5 Mar,9 Apr,11:00,14:00,Festival Tower,505 Collaborative Learning,false,false
+S1 2026,TT-16,S1+S2,false,COMP1702,Fundamentals of Software Engineering,Lecture,1,TUESDAY,28 Jul,15 Sep,08:00,10:00,Festival Tower,505 Collaborative Learning,false,false
+S1 2026,TT-16,S1+S2,false,COMP1702,Fundamentals of Software Engineering,Workshop,2,TUESDAY,28 Jul,15 Sep,10:00,12:00,Festival Tower,605 Collaborative Learning,false,false
