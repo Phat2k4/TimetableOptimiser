@@ -14,7 +14,7 @@ class InputValidatorTest {
     @Test
     @Order(42)
     @DisplayName("TC-42: validateMenuChoice — valid input within range returns integer")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc42_validateMenuChoice_validInput_returnsInteger()
             throws InputValidator.ValidationException {
@@ -28,7 +28,7 @@ class InputValidatorTest {
     @Test
     @Order(43)
     @DisplayName("TC-43: validateMenuChoice — out of range throws ValidationException")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc43_validateMenuChoice_outOfRange_throwsValidationException() {
         assertAll("out of range inputs",
@@ -42,7 +42,7 @@ class InputValidatorTest {
     @Test
     @Order(44)
     @DisplayName("TC-44: validateTopicCode — valid codes are normalised to upper case")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc44_validateTopicCode_validCodes_normalisedToUpperCase()
             throws InputValidator.ValidationException {
@@ -56,7 +56,7 @@ class InputValidatorTest {
     @ParameterizedTest(name = "TC-45 [{index}]: invalid topic code ''{0}'' should throw")
     @Order(45)
     @DisplayName("TC-45: validateTopicCode — invalid codes throw ValidationException")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("core")
     @ValueSource(strings = {
             "",
@@ -74,7 +74,7 @@ class InputValidatorTest {
     @Test
     @Order(46)
     @DisplayName("TC-46: validateSemester — valid inputs return normalised values")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("core")
     void tc46_validateSemester_validInputs_returnNormalisedValues()
             throws InputValidator.ValidationException {
