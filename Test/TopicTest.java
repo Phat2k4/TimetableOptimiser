@@ -12,7 +12,7 @@ class TopicTest {
     @Test
     @Order(6)
     @DisplayName("TC-06: Topic.parse — splits code and name on first space")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc06_parse_splitsCodeAndName() {
         Topic t = Topic.parse("COMP1102 Programming Fundamentals");
@@ -25,7 +25,7 @@ class TopicTest {
     @Test
     @Order(7)
     @DisplayName("TC-07: Topic.parse — multi-word name preserved after first space")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("core")
     void tc07_parse_multiWordNamePreserved() {
         Topic t = Topic.parse("NURS1001 Introduction to Nursing Practice");
@@ -35,7 +35,7 @@ class TopicTest {
     @Test
     @Order(8)
     @DisplayName("TC-08: Topic.parse — code only (no space) sets empty name")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("core")
     void tc08_parse_codeOnly_emptyName() {
         Topic t = Topic.parse("COMP1102");
@@ -48,7 +48,7 @@ class TopicTest {
     @Test
     @Order(9)
     @DisplayName("TC-09: Topic.parse — null input throws NullPointerException")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("core")
     void tc09_parse_null_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> Topic.parse(null));
@@ -57,7 +57,7 @@ class TopicTest {
     @Test
     @Order(10)
     @DisplayName("TC-10: Topic.getFullName — returns code + name when name present")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("additional")
     void tc10_getFullName_returnsCodeAndName() {
         Topic t = Topic.parse("COMP1002 Fundamentals of Artificial Intelligence");

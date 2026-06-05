@@ -17,7 +17,7 @@ import java.util.function.Predicate;
  * <h3>ANSI colours:</h3>
  * Green = success, Red = error, Yellow = warning, Cyan = prompt/info.
  */
-public final class ClassDataService {
+public final class  ClassDataService {
 
     // ── ANSI shortcuts ────────────────────────────────────────────────────────
     private static final String R  = AppState.ANSI_RESET;

@@ -12,7 +12,7 @@ class CsvImporterTest {
     @Test
     @Order(47)
     @DisplayName("TC-47: splitCsv — standard comma-separated line splits correctly")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc47_splitCsv_standardLine_splitsCorrectly() {
         String[] result = CsvImporter.splitCsv(
@@ -27,7 +27,7 @@ class CsvImporterTest {
     @Test
     @Order(48)
     @DisplayName("TC-48: splitCsv — quoted field containing comma is not split")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc48_splitCsv_quotedFieldWithComma_notSplit() {
         String[] result = CsvImporter.splitCsv("COMP1102,\"Festival Tower, Level 8\",101");
@@ -40,7 +40,7 @@ class CsvImporterTest {
     @Test
     @Order(49)
     @DisplayName("TC-49: splitCsv — escaped double quotes inside quoted field handled correctly")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("core")
     void tc49_splitCsv_escapedQuotes_handledCorrectly() {
         String[] result = CsvImporter.splitCsv("COMP1102,\"Room \"\"801\"\"\",S1");
@@ -53,7 +53,7 @@ class CsvImporterTest {
     @RepeatedTest(value = 3, name = "TC-50 — repeat {currentRepetition}/{totalRepetitions}: splitCsv empty line")
     @Order(50)
     @DisplayName("TC-50: splitCsv — empty string returns single empty element (repeated)")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("additional")
     void tc50_splitCsv_emptyString_returnsSingleEmptyElement() {
         String[] result = CsvImporter.splitCsv("");

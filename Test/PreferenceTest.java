@@ -27,7 +27,7 @@ class PreferenceTest {
     @Test
     @Order(11)
     @DisplayName("TC-11: Preference — isCompact returns true for Compact type")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc11_isCompact_returnsTrue() {
         assertTrue(pref1.isCompact());
@@ -36,7 +36,7 @@ class PreferenceTest {
     @Test
     @Order(12)
     @DisplayName("TC-12: Preference — isEvenlySpread returns true for Evenly Spread type")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc12_isEvenlySpread_returnsTrue() {
         assertTrue(pref2.isEvenlySpread());
@@ -45,7 +45,7 @@ class PreferenceTest {
     @Test
     @Order(13)
     @DisplayName("TC-13: Preference — isType is case-insensitive")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("core")
     void tc13_isType_caseInsensitive() {
         assertAll("case-insensitive type check",
@@ -58,7 +58,7 @@ class PreferenceTest {
     @Test
     @Order(14)
     @DisplayName("TC-14: Preference — hasHigherPriorityThan returns true when priorityOrder is lower")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc14_hasHigherPriorityThan_lowerOrderWins() {
         assertAll("priority comparison",
@@ -70,7 +70,7 @@ class PreferenceTest {
     @Test
     @Order(15)
     @DisplayName("TC-15: Preference — invalid priorityOrder less than 1 throws IllegalArgumentException")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("core")
     void tc15_invalidPriorityOrder_throwsIllegalArgumentException() {
         assertThrows(IllegalArgumentException.class,

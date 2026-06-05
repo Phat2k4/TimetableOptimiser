@@ -1,7 +1,22 @@
+### Maven ###
+target/
+
 ### IntelliJ IDEA ###
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
+*.iml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/dictionaries/
+.idea/shelf/
+.idea/aws.xml
+.idea/httpRequests/
+.idea/claudeCodeTabState.xml
+
+# Keep these — shared project settings
+!.idea/modules.xml
+!.idea/misc.xml
+!.idea/libraries/
 
 ### Eclipse ###
 .apt_generated
@@ -12,8 +27,6 @@ out/
 .springBeans
 .sts4-cache
 bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
 
 ### NetBeans ###
 /nbproject/private/
@@ -27,3 +40,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### App state (personal data — do not share) ###
+appstate.json

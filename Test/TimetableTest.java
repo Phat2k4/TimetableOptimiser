@@ -50,7 +50,7 @@ class TimetableTest {
     @Test
     @Order(37)
     @DisplayName("TC-37: Timetable.generateAutoName — returns Timetable_N format")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("core")
     void tc37_generateAutoName_returnsCorrectFormat() {
         assertAll("auto name format",
@@ -63,7 +63,7 @@ class TimetableTest {
     @Test
     @Order(38)
     @DisplayName("TC-38: Timetable.addEntry — entry is retrievable by topic")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc38_addEntry_retrievableByTopic() {
         TimetableEntry entry = new TimetableEntry(topicComp);
@@ -74,7 +74,7 @@ class TimetableTest {
     @Test
     @Order(39)
     @DisplayName("TC-39: Timetable.addEntry — null entry throws NullPointerException")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("core")
     void tc39_addEntry_null_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> timetable.addEntry(null));
@@ -83,7 +83,7 @@ class TimetableTest {
     @Test
     @Order(40)
     @DisplayName("TC-40: Timetable.resolveSpreadVsCompact — higher priority preference wins")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc40_resolveSpreadVsCompact_higherPriorityWins() {
         timetable.addPreference(new Preference("Evenly Spread", 2));
@@ -100,7 +100,7 @@ class TimetableTest {
     @Test
     @Order(41)
     @DisplayName("TC-41: Timetable.recomputeWarnings — clash detected between overlapping entries")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc41_recomputeWarnings_overlappingEntries_clashFlagged() {
         TimetableEntry entryA = new TimetableEntry(topicComp);

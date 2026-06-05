@@ -24,7 +24,7 @@ class LocationTest {
     @Test
     @Order(1)
     @DisplayName("TC-01: Location.parse — valid 'Building, Room' string")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc01_parse_validBuildingRoomString() {
         Location loc = Location.parse("Festival Tower, 801");
@@ -37,7 +37,7 @@ class LocationTest {
     @Test
     @Order(2)
     @DisplayName("TC-02: Location.parse — no room delimiter uses whole string as building")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc02_parse_noDelimiter_wholeStringIsBuilding() {
         Location loc = Location.parse("Festival Tower");
@@ -50,7 +50,7 @@ class LocationTest {
     @Test
     @Order(3)
     @DisplayName("TC-03: Location.parse — null or blank input returns Unknown")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("core")
     void tc03_parse_nullOrBlank_returnsUnknown() {
         assertAll("null and blank input",
@@ -63,7 +63,7 @@ class LocationTest {
     @Test
     @Order(4)
     @DisplayName("TC-04: Location.isSameCampusAs — same building case-insensitive returns true")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc04_isSameCampusAs_caseInsensitive_returnsTrue() {
         Location a = new Location("Bedford Park", "101");
@@ -74,7 +74,7 @@ class LocationTest {
     @Test
     @Order(5)
     @DisplayName("TC-05: Location.isSameCampusAs — different buildings returns false")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc05_isSameCampusAs_differentBuildings_returnsFalse() {
         assertAll("different campus checks",

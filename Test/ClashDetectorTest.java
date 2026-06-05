@@ -57,7 +57,7 @@ class ClashDetectorTest {
     @Test
     @Order(16)
     @DisplayName("TC-16: hasTimeClash — same day, overlapping sessions returns true")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc16_hasTimeClash_sameDay_overlapping_returnsTrue() {
         ClassSession a = buildSession(DayOfWeek.MONDAY, "09:00", "11:00", bedfordA101);
@@ -68,7 +68,7 @@ class ClashDetectorTest {
     @Test
     @Order(17)
     @DisplayName("TC-17: hasTimeClash — same day, back-to-back returns false")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc17_hasTimeClash_sameDay_backToBack_returnsFalse() {
         ClassSession a = buildSession(DayOfWeek.MONDAY, "09:00", "11:00", bedfordA101);
@@ -79,7 +79,7 @@ class ClashDetectorTest {
     @Test
     @Order(18)
     @DisplayName("TC-18: hasTimeClash — different days returns false")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc18_hasTimeClash_differentDays_returnsFalse() {
         ClassSession a = buildSession(DayOfWeek.MONDAY,  "09:00", "11:00", bedfordA101);
@@ -90,7 +90,7 @@ class ClashDetectorTest {
     @Test
     @Order(19)
     @DisplayName("TC-19: hasTimeClash — exactly 1 minute overlap returns true (boundary)")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc19_hasTimeClash_exactlyOneMinuteOverlap_returnsTrue() {
         ClassSession a = buildSession(DayOfWeek.MONDAY, "09:00", "10:01", bedfordA101);
@@ -101,7 +101,7 @@ class ClashDetectorTest {
     @Test
     @Order(20)
     @DisplayName("TC-20: hasTimeClash — null session a returns false (null safety)")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("core")
     void tc20_hasTimeClash_nullSessionA_returnsFalse() {
         ClassSession b = buildSession(DayOfWeek.MONDAY, "09:00", "11:00", bedfordA101);
@@ -111,7 +111,7 @@ class ClashDetectorTest {
     @Test
     @Order(21)
     @DisplayName("TC-21: hasTimeClash — null session b returns false (null safety)")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("core")
     void tc21_hasTimeClash_nullSessionB_returnsFalse() {
         ClassSession a = buildSession(DayOfWeek.MONDAY, "09:00", "11:00", bedfordA101);
@@ -121,7 +121,7 @@ class ClashDetectorTest {
     @ParameterizedTest(name = "TC-22 [{index}]: {0}–{1} vs {2}–{3} on same day expect clash={4}")
     @Order(22)
     @DisplayName("TC-22: hasTimeClash — parameterised overlap boundaries")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("core")
     @CsvSource({
             "09:00, 10:00, 10:00, 11:00, false",
@@ -143,7 +143,7 @@ class ClashDetectorTest {
     @Test
     @Order(23)
     @DisplayName("TC-23: violatesCommuteGap — different campus, gap < 30 min returns true")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc23_violatesCommuteGap_differentCampus_gapUnder30_returnsTrue() {
         ClassSession a = buildSession(DayOfWeek.MONDAY, "09:00", "10:00", bedfordA101);
@@ -154,7 +154,7 @@ class ClashDetectorTest {
     @Test
     @Order(24)
     @DisplayName("TC-24: violatesCommuteGap — different campus, gap exactly 30 min returns false (boundary)")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc24_violatesCommuteGap_differentCampus_gapExactly30_returnsFalse() {
         ClassSession a = buildSession(DayOfWeek.MONDAY, "09:00", "10:00", bedfordA101);
@@ -165,7 +165,7 @@ class ClashDetectorTest {
     @Test
     @Order(25)
     @DisplayName("TC-25: violatesCommuteGap — same campus, back-to-back returns false")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc25_violatesCommuteGap_sameCampus_backToBack_returnsFalse() {
         ClassSession a = buildSession(DayOfWeek.MONDAY, "09:00", "10:00", bedfordA101);
@@ -176,7 +176,7 @@ class ClashDetectorTest {
     @Test
     @Order(26)
     @DisplayName("TC-26: violatesCommuteGap — different campus, gap > 30 min returns false")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("core")
     void tc26_violatesCommuteGap_differentCampus_gapOver30_returnsFalse() {
         ClassSession a = buildSession(DayOfWeek.MONDAY, "09:00", "10:00", bedfordA101);
@@ -187,7 +187,7 @@ class ClashDetectorTest {
     @Test
     @Order(27)
     @DisplayName("TC-27: violatesCommuteGap — different days returns false")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("core")
     void tc27_violatesCommuteGap_differentDays_returnsFalse() {
         ClassSession a = buildSession(DayOfWeek.MONDAY,  "09:00", "10:00", bedfordA101);
@@ -198,7 +198,7 @@ class ClashDetectorTest {
     @ParameterizedTest(name = "TC-28 [{index}]: endA={0} startB={1} expect violation={2}")
     @Order(28)
     @DisplayName("TC-28: violatesCommuteGap — parameterised gap boundaries")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("core")
     @CsvSource({
             "10:00, 10:10, true",
@@ -227,7 +227,7 @@ class ClashDetectorTest {
     @Test
     @Order(29)
     @DisplayName("TC-29: isLectureExempt — both lectures, overlap allowed returns true")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc29_isLectureExempt_bothLectures_overlapAllowed_returnsTrue() {
         assertTrue(ClashDetector.isLectureExempt(sessionA, sessionB, true, true, ttAllowOverlap));
@@ -236,7 +236,7 @@ class ClashDetectorTest {
     @Test
     @Order(30)
     @DisplayName("TC-30: isLectureExempt — both lectures, overlap NOT allowed returns false")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc30_isLectureExempt_bothLectures_overlapNotAllowed_returnsFalse() {
         assertFalse(ClashDetector.isLectureExempt(sessionA, sessionB, true, true, ttNoOverlap));
@@ -245,7 +245,7 @@ class ClashDetectorTest {
     @Test
     @Order(31)
     @DisplayName("TC-31: isLectureExempt — only one is lecture returns false")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc31_isLectureExempt_onlyOneLecture_returnsFalse() {
         assertAll("one lecture scenarios",
@@ -257,7 +257,7 @@ class ClashDetectorTest {
     @Test
     @Order(32)
     @DisplayName("TC-32: isLectureExempt — null timetable returns false (null safety)")
-    @Tag("student1")
+    @Tag("Nguy1687")
     @Tag("core")
     void tc32_isLectureExempt_nullTimetable_returnsFalse() {
         assertFalse(ClashDetector.isLectureExempt(sessionA, sessionB, true, true, null));
@@ -268,7 +268,7 @@ class ClashDetectorTest {
     @Test
     @Order(33)
     @DisplayName("TC-33: violatesHardConstraint — same campus overlap returns true")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc33_violatesHardConstraint_sameCampusOverlap_returnsTrue() {
         ClassOption existing  = buildOption("Tutorial", 1, DayOfWeek.MONDAY, "09:00", "11:00", bedfordA101);
@@ -279,7 +279,7 @@ class ClashDetectorTest {
     @Test
     @Order(34)
     @DisplayName("TC-34: violatesHardConstraint — different campus, gap < 30 returns true")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc34_violatesHardConstraint_differentCampusShortGap_returnsTrue() {
         ClassOption existing  = buildOption("Lecture",  1, DayOfWeek.MONDAY, "09:00", "10:00", bedfordA101);
@@ -290,7 +290,7 @@ class ClashDetectorTest {
     @Test
     @Order(35)
     @DisplayName("TC-35: violatesHardConstraint — different days returns false")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc35_violatesHardConstraint_differentDays_returnsFalse() {
         ClassOption existing  = buildOption("Lecture",  1, DayOfWeek.MONDAY,  "09:00", "11:00", bedfordA101);
@@ -301,7 +301,7 @@ class ClashDetectorTest {
     @Test
     @Order(36)
     @DisplayName("TC-36: violatesHardConstraint — both lectures with overlap allowed returns false")
-    @Tag("student2")
+    @Tag("Nguy1687")
     @Tag("critical")
     void tc36_violatesHardConstraint_bothLectures_overlapAllowed_returnsFalse() {
         assumeTrue(ttAllowOverlap.isAllowLectureOverlap(),
