@@ -23,7 +23,6 @@ class TimetableGeneratorTest {
     }
 
     //  1. GenerationSettings — construction & normalisation
-
     @Nested
     @DisplayName("GenerationSettings — construction")
     @Tag("Core")
@@ -94,7 +93,6 @@ class TimetableGeneratorTest {
     }
 
     //  2. GenerationSettings — defensive copies (immutability)
-
     @Nested
     @DisplayName("GenerationSettings — immutability")
     @Tag("Core")
@@ -144,7 +142,6 @@ class TimetableGeneratorTest {
     }
 
     //  3. GenerationSettings.Builder
-
     @Nested
     @DisplayName("GenerationSettings.Builder")
     @Tag("Core")
@@ -211,7 +208,6 @@ class TimetableGeneratorTest {
     }
 
     //  4. GenerationSettings.toString()
-
     @Nested
     @DisplayName("GenerationSettings.toString()")
     @Tag("Additional")
@@ -245,7 +241,6 @@ class TimetableGeneratorTest {
     }
 
     //  5. GenerationResult — value-object contract
-
     @Nested
     @DisplayName("GenerationResult — value-object contract")
     @Tag("Core")
@@ -305,7 +300,6 @@ class TimetableGeneratorTest {
     }
 
     //  6. generate() — early-exit paths (no AppState required)
-
     @Nested
     @DisplayName("generate() — early-exit validation")
     @Tag("Critical")
@@ -358,7 +352,6 @@ class TimetableGeneratorTest {
     }
 
     //  7. lastUsedSettings static field
-
     @Nested
     @DisplayName("lastUsedSettings")
     @Tag("Core")
@@ -390,7 +383,6 @@ class TimetableGeneratorTest {
     }
 
     //  8. Preference ordering — settings contract
-
     @Nested
     @DisplayName("Preference ordering — settings contract")
     @Tag("Additional")
@@ -427,7 +419,6 @@ class TimetableGeneratorTest {
     }
 
     //  9. Semester settings contract
-
     @Nested
     @DisplayName("Semester settings contract")
     @Tag("Additional")
