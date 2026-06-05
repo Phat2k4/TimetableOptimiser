@@ -60,7 +60,7 @@ class TimetableGeneratorTest {
         return new Availability("On Campus", campus, semester, "1");
     }
 
-    @Test @Order(1) @Tag("Nguy1687") @Tag("critical")
+    @Test @Order(1) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("critical")
     @DisplayName("TC-TG-01: null name is normalised to empty string")
     void tc_tg_01_nullNameBecomesEmpty() {
         var settings = new TimetableGenerator.GenerationSettings(
@@ -69,7 +69,7 @@ class TimetableGeneratorTest {
         assertEquals("", settings.name);
     }
 
-    @Test @Order(2) @Tag("Nguy1687") @Tag("core")
+    @Test @Order(2) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("core")
     @DisplayName("TC-TG-02: name with whitespace is trimmed")
     void tc_tg_02_nameIsTrimmed() {
         var settings = new TimetableGenerator.GenerationSettings(
@@ -78,7 +78,7 @@ class TimetableGeneratorTest {
         assertEquals("MyTT", settings.name);
     }
 
-    @Test @Order(3) @Tag("Nguy1687") @Tag("critical")
+    @Test @Order(3) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("critical")
     @DisplayName("TC-TG-03: null semester defaults to both")
     void tc_tg_03_nullSemesterDefaultsBoth() {
         var settings = new TimetableGenerator.GenerationSettings(
@@ -87,7 +87,7 @@ class TimetableGeneratorTest {
         assertEquals("both", settings.semester);
     }
 
-    @Test @Order(4) @Tag("Nguy1687") @Tag("critical")
+    @Test @Order(4) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("critical")
     @DisplayName("TC-TG-04: null topicCodes becomes empty")
     void tc_tg_04_nullTopicCodesBecomesEmpty() {
         var settings = new TimetableGenerator.GenerationSettings(
@@ -96,7 +96,7 @@ class TimetableGeneratorTest {
         assertTrue(settings.topicCodes.isEmpty());
     }
 
-    @Test @Order(5) @Tag("Nguy1687") @Tag("critical")
+    @Test @Order(5) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("critical")
     @DisplayName("TC-TG-05: null preferenceOrder becomes empty")
     void tc_tg_05_nullPreferenceOrderBecomesEmpty() {
         var settings = new TimetableGenerator.GenerationSettings(
@@ -105,7 +105,7 @@ class TimetableGeneratorTest {
         assertTrue(settings.preferenceOrder.isEmpty());
     }
 
-    @Test @Order(6) @Tag("Nguy1687") @Tag("critical")
+    @Test @Order(6) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("critical")
     @DisplayName("TC-TG-06: null preferredCampus becomes empty")
     void tc_tg_06_nullPreferredCampusBecomesEmpty() {
         var settings = new TimetableGenerator.GenerationSettings(
@@ -114,7 +114,7 @@ class TimetableGeneratorTest {
         assertEquals("", settings.preferredCampus);
     }
 
-    @Test @Order(7) @Tag("Nguy1687") @Tag("core")
+    @Test @Order(7) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("core")
     @DisplayName("TC-TG-07: preferredCampus with whitespace is trimmed")
     void tc_tg_07_preferredCampusIsTrimmed() {
         var settings = new TimetableGenerator.GenerationSettings(
@@ -123,7 +123,7 @@ class TimetableGeneratorTest {
         assertEquals("Tonsley", settings.preferredCampus);
     }
 
-    @Test @Order(8) @Tag("Nguy1687") @Tag("core")
+    @Test @Order(8) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("core")
     @DisplayName("TC-TG-08: topicCodes are defensively copied")
     void tc_tg_08_topicCodesDefensivelyCopied() {
         List<String> codes = new ArrayList<>(List.of("COMP1234"));
@@ -135,7 +135,7 @@ class TimetableGeneratorTest {
         assertEquals(1, settings.topicCodes.size());
     }
 
-    @Test @Order(9) @Tag("Nguy1687") @Tag("core")
+    @Test @Order(9) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("core")
     @DisplayName("TC-TG-09: topicCodes list is unmodifiable")
     void tc_tg_09_topicCodesUnmodifiable() {
         var settings = new TimetableGenerator.GenerationSettings(
@@ -145,7 +145,7 @@ class TimetableGeneratorTest {
                 () -> settings.topicCodes.add("COMP9999"));
     }
 
-    @Test @Order(10) @Tag("Nguy1687") @Tag("core")
+    @Test @Order(10) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("core")
     @DisplayName("TC-TG-10: preferenceOrder is defensively copied")
     void tc_tg_10_preferenceOrderDefensivelyCopied() {
         List<String> preferences = new ArrayList<>(List.of("mornings"));
@@ -157,7 +157,7 @@ class TimetableGeneratorTest {
         assertEquals(1, settings.preferenceOrder.size());
     }
 
-    @Test @Order(11) @Tag("Nguy1687") @Tag("core")
+    @Test @Order(11) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("core")
     @DisplayName("TC-TG-11: preferenceOrder list is unmodifiable")
     void tc_tg_11_preferenceOrderUnmodifiable() {
         var settings = new TimetableGenerator.GenerationSettings(
@@ -167,7 +167,7 @@ class TimetableGeneratorTest {
                 () -> settings.preferenceOrder.add("afternoons"));
     }
 
-    @Test @Order(12) @Tag("Nguy1687") @Tag("core")
+    @Test @Order(12) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("core")
     @DisplayName("TC-TG-12: builder default values are correct")
     void tc_tg_12_builderDefaults() {
         var settings = new TimetableGenerator.GenerationSettings.Builder()
@@ -181,7 +181,7 @@ class TimetableGeneratorTest {
         assertTrue(settings.preferenceOrder.isEmpty());
     }
 
-    @Test @Order(13) @Tag("Nguy1687") @Tag("core")
+    @Test @Order(13) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("core")
     @DisplayName("TC-TG-13: toBuilder preserves all fields")
     void tc_tg_13_toBuilderRoundTrip() {
         var original = new TimetableGenerator.GenerationSettings(
@@ -197,7 +197,7 @@ class TimetableGeneratorTest {
         assertEquals(original.preferenceOrder, copy.preferenceOrder);
     }
 
-    @Test @Order(14) @Tag("Nguy1687") @Tag("core")
+    @Test @Order(14) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("core")
     @DisplayName("TC-TG-14: toBuilder partial override changes only selected field")
     void tc_tg_14_toBuilderPartialOverride() {
         var original = new TimetableGenerator.GenerationSettings(
@@ -211,7 +211,7 @@ class TimetableGeneratorTest {
         assertFalse(modified.allowLectureOverlap);
     }
 
-    @Test @Order(15) @Tag("Nguy1687") @Tag("core")
+    @Test @Order(15) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("core")
     @DisplayName("TC-TG-15: builder preserves lecture overlap flag")
     void tc_tg_15_lectureOverlapFlagPreserved() {
         var settings = new TimetableGenerator.GenerationSettings.Builder()
@@ -222,7 +222,7 @@ class TimetableGeneratorTest {
         assertTrue(settings.allowLectureOverlap);
     }
 
-    @Test @Order(16) @Tag("Nguy1687") @Tag("additional")
+    @Test @Order(16) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("additional")
     @DisplayName("TC-TG-16: toString contains important values")
     void tc_tg_16_toStringContainsKeyFields() {
         var settings = new TimetableGenerator.GenerationSettings(
@@ -237,7 +237,7 @@ class TimetableGeneratorTest {
         assertTrue(text.contains("mornings"));
     }
 
-    @Test @Order(17) @Tag("Nguy1687") @Tag("additional")
+    @Test @Order(17) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("additional")
     @DisplayName("TC-TG-17: toString does not throw")
     void tc_tg_17_toStringDoesNotThrow() {
         var settings = minimalSettings("COMP1234");
@@ -245,7 +245,7 @@ class TimetableGeneratorTest {
         assertDoesNotThrow(settings::toString);
     }
 
-    @Test @Order(18) @Tag("Nguy1687") @Tag("critical")
+    @Test @Order(18) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("critical")
     @DisplayName("TC-TG-18: fail result shape is correct")
     void tc_tg_18_failResultShape() {
         var result = TimetableGenerator.GenerationResult.fail("something went wrong");
@@ -256,7 +256,7 @@ class TimetableGeneratorTest {
         assertTrue(result.unmetPreferences.isEmpty());
     }
 
-    @Test @Order(19) @Tag("Nguy1687") @Tag("core")
+    @Test @Order(19) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("core")
     @DisplayName("TC-TG-19: ok result shape is correct")
     void tc_tg_19_okResultShape() {
         var result = TimetableGenerator.GenerationResult.ok(null, List.of());
@@ -266,7 +266,7 @@ class TimetableGeneratorTest {
         assertTrue(result.unmetPreferences.isEmpty());
     }
 
-    @Test @Order(20) @Tag("Nguy1687") @Tag("core")
+    @Test @Order(20) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("core")
     @DisplayName("TC-TG-20: ok result stores unmet preferences")
     void tc_tg_20_okResultCarriesUnmetPrefs() {
         var result = TimetableGenerator.GenerationResult.ok(null, List.of("mornings", "monday"));
@@ -274,7 +274,7 @@ class TimetableGeneratorTest {
         assertEquals(List.of("mornings", "monday"), result.unmetPreferences);
     }
 
-    @Test @Order(21) @Tag("Nguy1687") @Tag("core")
+    @Test @Order(21) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("core")
     @DisplayName("TC-TG-21: unmet preferences list is unmodifiable")
     void tc_tg_21_unmetPreferencesUnmodifiable() {
         var result = TimetableGenerator.GenerationResult.ok(null, List.of("mornings"));
@@ -283,7 +283,7 @@ class TimetableGeneratorTest {
                 () -> result.unmetPreferences.add("afternoons"));
     }
 
-    @Test @Order(22) @Tag("Nguy1687") @Tag("critical")
+    @Test @Order(22) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("critical")
     @DisplayName("TC-TG-22: fail result unmet preferences is not null")
     void tc_tg_22_failResultUnmetPrefsNotNull() {
         var result = TimetableGenerator.GenerationResult.fail("err");
@@ -292,14 +292,14 @@ class TimetableGeneratorTest {
         assertTrue(result.unmetPreferences.isEmpty());
     }
 
-    @Test @Order(23) @Tag("Nguy1687") @Tag("critical")
+    @Test @Order(23) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("critical")
     @DisplayName("TC-TG-23: null settings throws NullPointerException")
     void tc_tg_23_nullSettingsThrowsNPE() {
         assertThrows(NullPointerException.class,
                 () -> new TimetableGenerator().generate(null));
     }
 
-    @Test @Order(24) @Tag("Nguy1687") @Tag("critical")
+    @Test @Order(24) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("critical")
     @DisplayName("TC-TG-24: empty topicCodes returns failure")
     void tc_tg_24_emptyTopicCodesReturnsFail() {
         var settings = new TimetableGenerator.GenerationSettings.Builder()
@@ -313,7 +313,7 @@ class TimetableGeneratorTest {
         assertNotNull(result.errorMessage);
     }
 
-    @Test @Order(25) @Tag("Nguy1687") @Tag("critical")
+    @Test @Order(25) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("critical")
     @DisplayName("TC-TG-25: empty topicCodes error mentions topic")
     void tc_tg_25_emptyTopicCodesErrorMentionsTopic() {
         var settings = new TimetableGenerator.GenerationSettings.Builder()
@@ -325,7 +325,7 @@ class TimetableGeneratorTest {
         assertTrue(result.errorMessage.toLowerCase().contains("topic"));
     }
 
-    @Test @Order(26) @Tag("Nguy1687") @Tag("critical")
+    @Test @Order(26) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("critical")
     @DisplayName("TC-TG-26: empty topicCodes has null timetable")
     void tc_tg_26_emptyTopicCodesNullTimetable() {
         var settings = new TimetableGenerator.GenerationSettings.Builder()
@@ -335,7 +335,7 @@ class TimetableGeneratorTest {
         assertNull(new TimetableGenerator().generate(settings).timetable);
     }
 
-    @Test @Order(27) @Tag("Nguy1687") @Tag("core")
+    @Test @Order(27) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("core")
     @DisplayName("TC-TG-27: getLastUsedSettings is null before generation")
     void tc_tg_27_initiallyNull() throws Exception {
         resetLastUsed();
@@ -343,7 +343,7 @@ class TimetableGeneratorTest {
         assertNull(TimetableGenerator.getLastUsedSettings());
     }
 
-    @Test @Order(28) @Tag("Nguy1687") @Tag("core")
+    @Test @Order(28) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("core")
     @DisplayName("TC-TG-28: generate stores settings even on failure")
     void tc_tg_28_settingsStoredOnFailure() throws Exception {
         resetLastUsed();
@@ -360,7 +360,7 @@ class TimetableGeneratorTest {
         assertEquals(settings.semester, TimetableGenerator.getLastUsedSettings().semester);
     }
 
-    @Test @Order(29) @Tag("Nguy1687") @Tag("additional")
+    @Test @Order(29) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("additional")
     @DisplayName("TC-TG-29: preference order preserves insertion order")
     void tc_tg_29_insertionOrderPreserved() {
         List<String> preferences = List.of("mornings", "bedford park", "monday");
@@ -370,7 +370,7 @@ class TimetableGeneratorTest {
         assertEquals(preferences, settings.preferenceOrder);
     }
 
-    @Test @Order(30) @Tag("Nguy1687") @Tag("additional")
+    @Test @Order(30) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("additional")
     @DisplayName("TC-TG-30: all distinct preferences are stored")
     void tc_tg_30_allPreferencesStored() {
         List<String> preferences = List.of("mornings", "afternoons", "monday", "compact", "evenly spread");
@@ -380,7 +380,7 @@ class TimetableGeneratorTest {
         assertEquals(5, settings.preferenceOrder.size());
     }
 
-    @Test @Order(31) @Tag("Nguy1687") @Tag("additional")
+    @Test @Order(31) @Tag("Nguy1687") @Tag("AbhiyanShakya") @Tag("additional")
     @DisplayName("TC-TG-31: semester 1 is stored")
     void tc_tg_31_semester1() {
         assertEquals("1", minimalSettings("COMP1234").semester);

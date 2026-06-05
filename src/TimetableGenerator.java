@@ -1,3 +1,5 @@
+//TimetableGenerator.java
+
 import model.*;
 
 import java.time.DayOfWeek;
