@@ -47,6 +47,8 @@ class AppStateTest {
         }
 
         @Test
+        @Tag("DavidHarms")
+        @Tag("core")
         void addFindAndListTopic() {
             Topic topic = new Topic("comp101", "Programming");
 
@@ -57,11 +59,15 @@ class AppStateTest {
         }
 
         @Test
+        @Tag("DavidHarms")
+        @Tag("core")
         void addNullTopicThrowsException() {
             assertThrows(NullPointerException.class, () -> app.addTopic(null));
         }
 
         @Test
+        @Tag("DavidHarms")
+        @Tag("core")
         void timetableMethodsWork() {
             Timetable tt = new Timetable("My Timetable", "TT-1", "S1", false);
 
@@ -74,17 +80,23 @@ class AppStateTest {
         }
 
         @Test
+        @Tag("DavidHarms")
+        @Tag("core")
         void addNullTimetableThrowsException() {
             assertThrows(NullPointerException.class, () -> app.addTimetable(null));
         }
 
         @Test
+        @Tag("DavidHarms")
+        @Tag("core")
         void nextTimetableIdAndNameWork() {
             assertEquals("TT-1", app.nextTimetableId());
             assertNotNull(app.nextAutoName());
         }
 
         @Test
+        @Tag("DavidHarms")
+        @Tag("core")
         void saveAndLoadFullState() throws Exception {
             Topic topic = new Topic("COMP101", "Programming");
             Availability av = new Availability("Internal", "Bedford", "S1", "1");
@@ -117,6 +129,8 @@ class AppStateTest {
         }
 
         @Test
+        @Tag("DavidHarms")
+        @Tag("core")
         void loadWithInvalidJsonDoesNotCrash() throws Exception {
             Files.writeString(Path.of("appstate.json"), "{ bad json");
 

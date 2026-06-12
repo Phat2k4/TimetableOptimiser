@@ -1,0 +1,14 @@
+═══════════════════════════════════════════════════════════
+  Timetable : Test Timetable
+  ID        : TT-1
+  Semester  : S1
+  Lecture overlap allowed: false
+  Preferences: Morning
+  Exported  : 12 June 2026 12:11
+═══════════════════════════════════════════════════════════
+
+Topic: COMP101  Programming
+  Class (Instance) Day  First       Last         Start  End     Building             Room
+  --------------------------------------------------------------------------------------------------
+  Lecture       ( 1)  MON  23 Feb      1 Jun        09:00  10:00   Bedford              101
+

@@ -68,6 +68,8 @@ class TimetableServiceTest {
     }
 
     @Test
+    @Tag("DavidHarms")
+    @Tag("core")
     void createNullSettings() {
         TimetableService service = new TimetableService(new Scanner(""));
 
@@ -78,6 +80,8 @@ class TimetableServiceTest {
     }
 
     @Test
+    @Tag("DavidHarms")
+    @Tag("core")
     void viewExistingTimetable() {
         makeTimetable();
 
@@ -87,6 +91,8 @@ class TimetableServiceTest {
     }
 
     @Test
+    @Tag("DavidHarms")
+    @Tag("core")
     void viewMissingTimetable() {
         TimetableService service = new TimetableService(new Scanner(""));
 
@@ -94,6 +100,8 @@ class TimetableServiceTest {
     }
 
     @Test
+    @Tag("DavidHarms")
+    @Tag("core")
     void browseAllWithTimetable() {
         makeTimetable();
 
@@ -103,6 +111,8 @@ class TimetableServiceTest {
     }
 
     @Test
+    @Tag("DavidHarms")
+    @Tag("core")
     void browseAllEmpty() {
         TimetableService service = new TimetableService(new Scanner(""));
 
@@ -110,6 +120,8 @@ class TimetableServiceTest {
     }
 
     @Test
+    @Tag("DavidHarms")
+    @Tag("core")
     void deleteConfirmed() {
         makeTimetable();
 
@@ -121,6 +133,8 @@ class TimetableServiceTest {
     }
 
     @Test
+    @Tag("DavidHarms")
+    @Tag("core")
     void deleteCancelled() {
         makeTimetable();
 
@@ -132,6 +146,8 @@ class TimetableServiceTest {
     }
 
     @Test
+    @Tag("DavidHarms")
+    @Tag("core")
     void deleteMissingTimetable() {
         TimetableService service = new TimetableService(new Scanner(""));
 
@@ -139,6 +155,8 @@ class TimetableServiceTest {
     }
 
     @Test
+    @Tag("DavidHarms")
+    @Tag("core")
     void exportTxt() {
         makeTimetable();
 
@@ -148,6 +166,8 @@ class TimetableServiceTest {
     }
 
     @Test
+    @Tag("DavidHarms")
+    @Tag("core")
     void exportCsv() {
         makeTimetable();
 
@@ -157,6 +177,8 @@ class TimetableServiceTest {
     }
 
     @Test
+    @Tag("DavidHarms")
+    @Tag("core")
     void exportBadFormat() {
         makeTimetable();
 
@@ -166,6 +188,8 @@ class TimetableServiceTest {
     }
 
     @Test
+    @Tag("DavidHarms")
+    @Tag("core")
     void exportMissingTimetable() {
         TimetableService service = new TimetableService(new Scanner(""));
 
@@ -173,6 +197,8 @@ class TimetableServiceTest {
     }
 
     @Test
+    @Tag("DavidHarms")
+    @Tag("core")
     void exportNullFormatDefaultsToTxt() {
         makeTimetable();
 
@@ -182,6 +208,8 @@ class TimetableServiceTest {
     }
 
     @Test
+    @Tag("DavidHarms")
+    @Tag("core")
     void editMissingTimetable() {
         TimetableService service = new TimetableService(new Scanner(""));
 
@@ -189,6 +217,8 @@ class TimetableServiceTest {
     }
 
     @Test
+    @Tag("DavidHarms")
+    @Tag("core")
     void editExistingTimetableSwapOption() {
         makeTimetable();
 
@@ -203,6 +233,8 @@ class TimetableServiceTest {
     }
 
     @Test
+    @Tag("DavidHarms")
+    @Tag("core")
     void constructorNullScannerThrows() {
         assertThrows(
                 NullPointerException.class,

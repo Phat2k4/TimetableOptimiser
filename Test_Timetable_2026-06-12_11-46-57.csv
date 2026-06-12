@@ -1,0 +1,2 @@
+TimetableName,TimetableId,Semester,AllowLectureOverlap,TopicCode,TopicName,ClassName,ClassInstance,Day,FirstDate,LastDate,StartTime,EndTime,Building,Room,ClashWarning,CommuteWarning
+Test Timetable,TT-1,S1,false,COMP101,Programming,Lecture,1,MONDAY,23 Feb,1 Jun,09:00,10:00,Bedford,101,false,false
