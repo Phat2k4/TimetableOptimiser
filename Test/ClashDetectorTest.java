@@ -131,8 +131,8 @@ class ClashDetectorTest {
             "09:00, 11:00, 09:00, 11:00, true"
     })
     void tc22_hasTimeClash_parameterised(String startA, String endA,
-                                          String startB, String endB,
-                                          boolean expected) {
+                                         String startB, String endB,
+                                         boolean expected) {
         ClassSession a = buildSession(DayOfWeek.WEDNESDAY, startA, endA, bedfordA101);
         ClassSession b = buildSession(DayOfWeek.WEDNESDAY, startB, endB, bedfordA102);
         assertEquals(expected, ClashDetector.hasTimeClash(a, b));
@@ -309,5 +309,20 @@ class ClashDetectorTest {
         ClassOption existing  = buildOption("Lecture", 1, DayOfWeek.MONDAY, "09:00", "11:00", bedfordA101);
         ClassOption candidate = buildOption("Lecture", 2, DayOfWeek.MONDAY, "10:00", "12:00", bedfordA102);
         assertFalse(ClashDetector.violatesHardConstraint(existing, candidate, ttAllowOverlap));
+    }
+
+    @Test
+    @Order(30)
+    @Tag("Dass0027")
+    @Tag("Critical")
+    @DisplayName("Overlapping class options should be rejected")
+    void OverlappingClassOptionsShouldBeRejected() {
+        ClassOption firstOption = buildOption("Tutorial", 1, DayOfWeek.MONDAY, "09:00", "10:00", bedfordA101);
+        ClassOption secondOption = buildOption("Workshop", 1, DayOfWeek.MONDAY, "09:30", "10:30", bedfordA102);
+
+        boolean result = ClashDetector.violatesHardConstraint(firstOption, secondOption, ttNoOverlap);
+
+        assertFalse(result,
+                "Expected overlapping class options to be rejected before selection, but the clash was only detected after both options were checked.");
     }
 }
