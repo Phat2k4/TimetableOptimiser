@@ -5,18 +5,26 @@ import java.lang.reflect.Field;
 import java.nio.file.*;
 import java.time.*;
 import java.util.Scanner;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class TimetableServiceTest {
 
+    private final PrintStream originalOutput = System.out;
+    private ByteArrayOutputStream captureOutputStream;
+
     @BeforeEach
     void resetBefore() throws Exception {
         resetAppState();
+        captureOutputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(captureOutputStream));
     }
 
     @AfterEach
     void resetAfter() throws Exception {
+        System.setOut(originalOutput);
         resetAppState();
         Files.deleteIfExists(Path.of("appstate.json"));
     }
@@ -68,8 +76,6 @@ class TimetableServiceTest {
     }
 
     @Test
-    @Tag("DavidHarms")
-    @Tag("core")
     void createNullSettings() {
         TimetableService service = new TimetableService(new Scanner(""));
 
@@ -80,8 +86,6 @@ class TimetableServiceTest {
     }
 
     @Test
-    @Tag("DavidHarms")
-    @Tag("core")
     void viewExistingTimetable() {
         makeTimetable();
 
@@ -91,8 +95,6 @@ class TimetableServiceTest {
     }
 
     @Test
-    @Tag("DavidHarms")
-    @Tag("core")
     void viewMissingTimetable() {
         TimetableService service = new TimetableService(new Scanner(""));
 
@@ -100,8 +102,6 @@ class TimetableServiceTest {
     }
 
     @Test
-    @Tag("DavidHarms")
-    @Tag("core")
     void browseAllWithTimetable() {
         makeTimetable();
 
@@ -111,8 +111,6 @@ class TimetableServiceTest {
     }
 
     @Test
-    @Tag("DavidHarms")
-    @Tag("core")
     void browseAllEmpty() {
         TimetableService service = new TimetableService(new Scanner(""));
 
@@ -120,8 +118,6 @@ class TimetableServiceTest {
     }
 
     @Test
-    @Tag("DavidHarms")
-    @Tag("core")
     void deleteConfirmed() {
         makeTimetable();
 
@@ -133,8 +129,6 @@ class TimetableServiceTest {
     }
 
     @Test
-    @Tag("DavidHarms")
-    @Tag("core")
     void deleteCancelled() {
         makeTimetable();
 
@@ -146,8 +140,6 @@ class TimetableServiceTest {
     }
 
     @Test
-    @Tag("DavidHarms")
-    @Tag("core")
     void deleteMissingTimetable() {
         TimetableService service = new TimetableService(new Scanner(""));
 
@@ -155,8 +147,6 @@ class TimetableServiceTest {
     }
 
     @Test
-    @Tag("DavidHarms")
-    @Tag("core")
     void exportTxt() {
         makeTimetable();
 
@@ -166,8 +156,6 @@ class TimetableServiceTest {
     }
 
     @Test
-    @Tag("DavidHarms")
-    @Tag("core")
     void exportCsv() {
         makeTimetable();
 
@@ -177,8 +165,6 @@ class TimetableServiceTest {
     }
 
     @Test
-    @Tag("DavidHarms")
-    @Tag("core")
     void exportBadFormat() {
         makeTimetable();
 
@@ -188,8 +174,6 @@ class TimetableServiceTest {
     }
 
     @Test
-    @Tag("DavidHarms")
-    @Tag("core")
     void exportMissingTimetable() {
         TimetableService service = new TimetableService(new Scanner(""));
 
@@ -197,8 +181,6 @@ class TimetableServiceTest {
     }
 
     @Test
-    @Tag("DavidHarms")
-    @Tag("core")
     void exportNullFormatDefaultsToTxt() {
         makeTimetable();
 
@@ -208,8 +190,6 @@ class TimetableServiceTest {
     }
 
     @Test
-    @Tag("DavidHarms")
-    @Tag("core")
     void editMissingTimetable() {
         TimetableService service = new TimetableService(new Scanner(""));
 
@@ -217,8 +197,6 @@ class TimetableServiceTest {
     }
 
     @Test
-    @Tag("DavidHarms")
-    @Tag("core")
     void editExistingTimetableSwapOption() {
         makeTimetable();
 
@@ -233,12 +211,42 @@ class TimetableServiceTest {
     }
 
     @Test
-    @Tag("DavidHarms")
-    @Tag("core")
     void constructorNullScannerThrows() {
         assertThrows(
                 NullPointerException.class,
                 () -> new TimetableService(null)
         );
+    }
+
+    @Test
+    @Order(287)
+    @Tag("Dulina")
+    @Tag("Core")
+    @DisplayName("Missing timetable search should return empty result")
+    void MissingTimetableSearchShouldReturnEmptyResult() {
+        TimetableService service = new TimetableService(new Scanner(""));
+
+        service.view("missing");
+
+        String output = captureOutputStream.toString();
+
+        assertTrue(output.contains("No matching timetable found") || output.contains("0 results"),
+                "Expected missing timetable search to return an empty result, but actual output was: " + output);
+    }
+
+    @Test
+    @Order(288)
+    @Tag("Dulina")
+    @Tag("Core")
+    @DisplayName("Delete missing timetable should show clear message")
+    void DeleteMissingTimetableShouldShowClearMessage() {
+        TimetableService service = new TimetableService(new Scanner(""));
+
+        service.delete("missing");
+
+        String output = captureOutputStream.toString();
+
+        assertTrue(output.contains("Cannot delete because timetable does not exist"),
+                "Expected clear delete prevention message, but actual output was: " + output);
     }
 }
