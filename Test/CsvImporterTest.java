@@ -678,4 +678,66 @@ class CsvImporterTest {
                 () -> assertEquals(0, importer.getSkipped())
         );
     }
+
+    @Test
+    @Order(284)
+    @Tag("Dulina")
+    @Tag("Critical")
+    @DisplayName("Missing CSV file should ask user to retry")
+    void MissingCsvFileShouldAskUserToRetry() {
+        CsvImporter importer = new CsvImporter();
+
+        boolean result = importer.importFile("nonexistent_file_xyz.csv");
+
+        String output = captureOutputStream.toString();
+
+        assertAll("missing csv retry",
+                () -> assertFalse(result),
+                () -> assertTrue(output.contains("Please enter another file path") || output.contains("Try again"),
+                        "Expected missing CSV file import to ask the user to retry, but actual output was: " + output)
+        );
+    }
+
+    @Test
+    @Order(285)
+    @Tag("Dulina")
+    @Tag("Core")
+    @DisplayName("Blank CSV file path should be rejected before import")
+    void BlankCsvFilePathShouldBeRejectedBeforeImport() {
+        CsvImporter importer = new CsvImporter();
+
+        boolean result = importer.importFile("   ");
+
+        String output = captureOutputStream.toString();
+
+        assertAll("blank csv path",
+                () -> assertFalse(result),
+                () -> assertTrue(output.contains("Invalid file path") || output.contains("Path cannot be blank"),
+                        "Expected blank file path to be rejected before import, but actual output was: " + output)
+        );
+    }
+
+    @Test
+    @Order(286)
+    @Tag("Dulina")
+    @Tag("Additional")
+    @DisplayName("Unsupported file format should give retry option")
+    void UnsupportedFileFormatShouldGiveRetryOption() throws Exception {
+        Path tempFile = Files.createTempFile("csv-importer-test", ".pdf");
+        Files.writeString(tempFile, "This is not a CSV file");
+
+        CsvImporter importer = new CsvImporter();
+
+        boolean result = importer.importFile(tempFile.toString());
+
+        String output = captureOutputStream.toString();
+
+        assertAll("unsupported file format",
+                () -> assertFalse(result),
+                () -> assertTrue(output.contains("Please choose a CSV file") || output.contains("Try another file"),
+                        "Expected unsupported file format to give retry option, but actual output was: " + output)
+        );
+
+        Files.deleteIfExists(tempFile);
+    }
 }
