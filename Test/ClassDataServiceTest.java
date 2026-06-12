@@ -7,6 +7,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Map;
 import java.util.Scanner;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,6 +24,9 @@ class ClassDataServiceTest {
     private static Topic     topic;
     private static Availability av;
     private static ClassOption  option;
+
+    private final PrintStream originalOutput = System.out;
+    private ByteArrayOutputStream captureOutputStream;
 
     @BeforeAll
     static void setUpSuite() {
@@ -43,11 +48,20 @@ class ClassDataServiceTest {
         AppState.getInstance().addTopic(topic);
     }
 
+    @BeforeEach
+    void setUpOutputCapture() {
+        captureOutputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(captureOutputStream));
+    }
+
+    @AfterEach
+    void tearDownOutputCapture() {
+        System.setOut(originalOutput);
+    }
+
     private ClassDataService service() {
         return new ClassDataService(new Scanner("dummy\n"));
     }
-
-    // ── Constructor ───────────────────────────────────────────────────────────
 
     @Test @Order(1) @Tag("Nguy1687") @Tag("critical")
     @DisplayName("TC-CDS-01: Constructor — valid Scanner creates service")
@@ -62,8 +76,6 @@ class ClassDataServiceTest {
     void tc_cds_02_constructor_null_throws() {
         assertThrows(NullPointerException.class, () -> new ClassDataService(null));
     }
-
-    // ── Static constants ──────────────────────────────────────────────────────
 
     @Test @Order(3) @Tag("Nguy1687") @Tag("core")
     @DisplayName("TC-CDS-03: Static constants — all search field names correct")
@@ -87,8 +99,6 @@ class ClassDataServiceTest {
         );
     }
 
-    // ── importFromCsv ─────────────────────────────────────────────────────────
-
     @Test @Order(4) @Tag("Nguy1687") @Tag("core")
     @DisplayName("TC-CDS-04: importFromCsv — non-existent path returns false")
     void tc_cds_04_importFromCsv_invalidPath_returnsFalse() {
@@ -100,8 +110,6 @@ class ClassDataServiceTest {
     void tc_cds_05_importFromCsv_blankPath_throwsOrReturnsFalse() {
         assertThrows(Exception.class, () -> service().importFromCsv("   "));
     }
-
-    // ── FlatRecord ────────────────────────────────────────────────────────────
 
     @Test @Order(6) @Tag("Nguy1687") @Tag("critical")
     @DisplayName("TC-CDS-06: FlatRecord — all fields populated correctly from topic/av/option")
@@ -144,15 +152,11 @@ class ClassDataServiceTest {
         );
     }
 
-    // ── browseAll ─────────────────────────────────────────────────────────────
-
     @Test @Order(8) @Tag("Nguy1687") @Tag("core")
     @DisplayName("TC-CDS-08: browseAll — runs without exception when AppState has data")
     void tc_cds_08_browseAll_withData_noException() {
         assertDoesNotThrow(() -> service().browseAll());
     }
-
-    // ── viewTopicCode ─────────────────────────────────────────────────────────
 
     @Test @Order(9) @Tag("Nguy1687") @Tag("core")
     @DisplayName("TC-CDS-09: viewTopicCode — non-existent topic runs without exception")
@@ -165,8 +169,6 @@ class ClassDataServiceTest {
     void tc_cds_10_viewTopicCode_found_noException() {
         assertDoesNotThrow(() -> service().viewTopicCode("COMP9999"));
     }
-
-    // ── search ────────────────────────────────────────────────────────────────
 
     @Test @Order(11) @Tag("Nguy1687") @Tag("core")
     @DisplayName("TC-CDS-11: search — empty criteria map runs without exception")
@@ -292,5 +294,21 @@ class ClassDataServiceTest {
         Map<String, String> criteria = new java.util.HashMap<>();
         criteria.put(ClassDataService.S_TOPIC_CODE, null);
         assertDoesNotThrow(() -> service().search(criteria));
+    }
+
+    @Test
+    @Order(29)
+    @Tag("Dass0027")
+    @Tag("Additional")
+    @DisplayName("Unknown search field should stop search")
+    void UnknownSearchFieldShouldStopSearch() {
+        ClassDataService classDataService = service();
+
+        classDataService.search(Map.of("unknownField", "someValue"));
+
+        String output = captureOutputStream.toString();
+
+        assertFalse(output.contains("Search Results"),
+                "Expected search to stop when search field is invalid, but actual output was: " + output);
     }
 }
